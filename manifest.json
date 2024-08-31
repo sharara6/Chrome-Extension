@@ -3,8 +3,12 @@
     "version": "1.0",
     "name": "Link Saver",
     "action": {
-        "default_popup": "index.html",
-        "default_icon": "197bfed06ab38ebd786c364ec8869d2e.jpg"
+        "default_popup": "index.html"
+    }, "icons":
+    {
+       "128": "images(1).png",
+       "16": "images(1).png",
+       "48": "images(1).png"
     },
     "permissions": [
         "tabs"
