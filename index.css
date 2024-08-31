@@ -16,13 +16,22 @@ button {
     background-color:#5f9341 ;
     color: white;
     font-weight: bold;
-    border: none;
+    border: 1px solid #5f9341;    
     padding:10px  20px ;
     border-radius: 3px;
 }
 button:hover {
     background-color:#3a5c26 ;
     cursor: pointer;
+}
+
+#delete-btn {
+    background-color:white ;
+    color : #5f9341;
+}
+#delete-btn:hover {
+    background-color:#d9d9d9 ;
+    color: #5f9341;
 }
 
 ul {

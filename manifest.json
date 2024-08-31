@@ -5,5 +5,8 @@
     "action": {
         "default_popup": "index.html",
         "default_icon": "197bfed06ab38ebd786c364ec8869d2e.jpg"
-    }
+    },
+    "permissions": [
+        "tabs"
+    ]
 }
