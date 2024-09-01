@@ -31,17 +31,45 @@ deleteBtn.addEventListener("click", function() {
 })
 
 inputListener.addEventListener("click", function() {
-    myLeads.push(inputEl.value)
-    inputEl.value = ""
-    localStorage.setItem("myLeads", JSON.stringify(myLeads))
-    renderElements(myLeads)
+    if(inputEl.value) {
+        myLeads.push(inputEl.value)
+        inputEl.value = ""
+        localStorage.setItem("myLeads", JSON.stringify(myLeads))
+        renderElements(myLeads)
+    }
+
 })
 
 function renderElements(links) {
     let listItems = ""
 
     for (let i = 0; i < links.length; i++) {
-        listItems += `<li><a href='${links[i]}' target="_blank">${links[i]}</a></li>`
+        listItems += `
+            <li >
+                <a href='${links[i]}' target="_blank">
+                    ${links[i]}
+                </a>
+                <i id="link-${i}" class="fa-solid fa-x"></i>
+            </li>`
     }
     ulEl.innerHTML = listItems
+
+    // Add event listeners to each list item
+    for (let i = 0; i < links.length; i++) {
+        const listItem = document.getElementById(`link-${i}`)
+        listItem.addEventListener("click", function(event) {
+            // Check if the click is not on the <a> tag
+            if (event.target.tagName === "I") {
+                removeLinkByIndex(i)
+            }
+        })
+    }
+}
+
+function removeLinkByIndex(index) {
+    if (index >= 0 && index < myLeads.length) {
+        myLeads.splice(index, 1)
+        localStorage.setItem("myLeads", JSON.stringify(myLeads))
+        renderElements(myLeads)
+    }
 }
